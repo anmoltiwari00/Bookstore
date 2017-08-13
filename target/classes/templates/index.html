@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html xmlns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/header:: common-header">
 <meta charset="UTF-8" />
 <title>My page</title>
 
@@ -19,124 +19,197 @@
 <body>
 
 
-	<!-- Static navbar -->
-	<nav class="navbar navbar-default navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-					aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">Project name</a>
-			</div>
-			<div id="navbar" class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Contact</a></li>
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" role="button" aria-haspopup="true"
-						aria-expanded="false">Dropdown <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Action</a></li>
-							<li><a href="#">Another action</a></li>
-							<li><a href="#">Something else here</a></li>
-							<li role="separator" class="divider"></li>
-							<li class="dropdown-header">Nav header</li>
-							<li><a href="#">Separated link</a></li>
-							<li><a href="#">One more separated link</a></li>
-						</ul></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li class="active"><a href="./">Default <span
-							class="sr-only">(current)</span></a></li>
-					<li><a href="../navbar-static-top/">Static top</a></li>
-					<li><a href="../navbar-fixed-top/">Fixed top</a></li>
-				</ul>
-			</div>
-			<!--/.nav-collapse -->
-		</div>
-		<!--/.container-fluid -->
-	</nav>
+	<div th:replace="common/header::navbar"></div>
 
 	<div class="container">
 		<div class="row">
-			
+
 			<div class="panel panel-default">
-  				<div class="panel-body">
-  			  	
- 			
-			<!-- carousel -->
-			<div class="col-xs-8">
-				<div id="myCarousel" class="carousel slide" data-ride="carousel">
+				<div class="panel-body">
+
+
+					<!-- carousel -->
+					<div class="col-xs-8">
+						<div id="myCarousel" class="carousel slide" data-ride="carousel">
+							<!-- Indicators -->
+							<ol class="carousel-indicators">
+								<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+								<li data-target="#myCarousel" data-slide-to="1"></li>
+								<li data-target="#myCarousel" data-slide-to="2"></li>
+							</ol>
+							<div class="carousel-inner" role="listbox">
+								<div class="item active">
+									<img class="slide" src="http://lorempixel.com/400/200/sports/"
+										alt="..." />
+									<div class="carousel-caption"></div>
+								</div>
+								<div class="item">
+									<img class="slide"
+										src="http://lorempixel.com/400/200/sports/1/" alt="..." />
+									<div class="carousel-caption"></div>
+								</div>
+								<div class="item">
+									<img class="slide"
+										src="http://lorempixel.com/400/200/sports/3/" alt="..." />
+									<div class="carousel-caption"></div>
+								</div>
+							</div>
+							<a class="left carousel-control" href="#myCarousel" role="button"
+								data-slide="prev"> <span
+								class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+								<span class="sr-only">Previous</span>
+							</a> <a class="right carousel-control" href="#myCarousel"
+								role="button" data-slide="next"> <span
+								class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+								<span class="sr-only">Next</span>
+							</a>
+						</div>
+
+					</div>
+
+					<div class="col-xs-4">
+						<img src="/image/icon.png" class="img-reposnsive icon" />
+						<h3 style="margin-left: 30px; font-family: helvetica;">
+							<i>Because books are the best source of entertainment!</i>
+						</h3>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+
+			<div class="panel panel-dafault">
+				<div class="panel-body">
+
+
+					<div class="col-xs-4">
+						<img src="/image/bestseller.png" class="img-responsive" />
+					</div>
+
+					<div class="col-xs-4">
+						<img src="/image/hours.png" class="img-responsive" />
+					</div>
+
+					<div class="col-xs-4">
+						<img src="/image/faq.png" class="img-responsive" />
+					</div>
+
+				</div>
+			</div>
+
+			<div>
+				<hr style="border-color: grey;" />
+				<div class="featuredBooksHeadline"
+					style="height: 22px; margin: auto; border: 1px solid grey; color: white; margin-top: -30px; text-align: center; font-family: Times New Roman, times; width: 120px; background-color: black;">
+					Featured Books</div>
+			</div>
+
+			<div class="row">
+				<div id="featured-books" class="carousel slide" data-ride="carousel"
+					style="margin-top: 10px;">
 					<!-- Indicators -->
 					<ol class="carousel-indicators">
-						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-						<li data-target="#myCarousel" data-slide-to="1"></li>
-						<li data-target="#myCarousel" data-slide-to="2" ></li>
+						<li data-target="#featured-books" data-slide-to="0" class="active"></li>
+						<li data-target="#featured-books" data-slide-to="1"></li>
+						<li data-target="#featured-books" data-slide-to="2"></li>
 					</ol>
+
+					<!-- Wrapper for slides -->
 					<div class="carousel-inner" role="listbox">
 						<div class="item active">
-							<img class="slide"
-								src="http://lorempixel.com/400/200/sports/"
-								alt="..." />
-								<div class="carousel-caption">
-									
-									
+							<img src="/image/shelf.png" class="img-responsive" />
+							<div class="carousel-caption">
+								<div class="row">
+									<div class="col-xs-2">
+										<img class="img-responsive" src="/image/book1.png" />
+									</div>
+									<div class="col-xs-2">
+										<img class="img-responsive" src="/image/book1.png" />
+									</div>
+									<div class="col-xs-2">
+										<img class="img-responsive" src="/image/book1.png" />
+									</div>
+									<div class="col-xs-2">
+										<img class="img-responsive" src="/image/book1.png" />
+									</div>
+									<div class="col-xs-2">
+										<img class="img-responsive" src="/image/book1.png" />
+									</div>
+									<div class="col-xs-2">
+										<img class="img-responsive" src="/image/book1.png" />
+									</div>
 								</div>
+							</div>
 						</div>
 						<div class="item">
-							<img class="slide"
-								src="http://lorempixel.com/400/200/sports/1/"
-								alt="..." />
-								<div class="carousel-caption">
-									
+							<img src="/image/shelf.png" class="img-responsive" />
+							<div class="carousel-caption">
+								<div class="row">
+									<div class="col-xs-2">
+										<img class="img-responsive" src="/image/book1.png" />
+									</div>
+									<div class="col-xs-2">
+										<img class="img-responsive" src="/image/book1.png" />
+									</div>
+									<div class="col-xs-2">
+										<img class="img-responsive" src="/image/book1.png" />
+									</div>
+									<div class="col-xs-2">
+										<img class="img-responsive" src="/image/book1.png" />
+									</div>
+									<div class="col-xs-2">
+										<img class="img-responsive" src="/image/book1.png" />
+									</div>
+									<div class="col-xs-2">
+										<img class="img-responsive" src="/image/book1.png" />
+									</div>
 								</div>
+							</div>
 						</div>
 						<div class="item">
-							<img class="slide"
-								src="http://lorempixel.com/400/200/sports/3/"
-								alt="..." />
-								<div class="carousel-caption">
-									
+							<img src="/image/shelf.png" class="img-responsive" />
+							<div class="carousel-caption">
+								<div class="row">
+									<div class="col-xs-2">
+										<img class="img-responsive" src="/image/book1.png" />
+									</div>
+									<div class="col-xs-2">
+										<img class="img-responsive" src="/image/book1.png" />
+									</div>
+									<div class="col-xs-2">
+										<img class="img-responsive" src="/image/book1.png" />
+									</div>
+									<div class="col-xs-2">
+										<img class="img-responsive" src="/image/book1.png" />
+									</div>
+									<div class="col-xs-2">
+										<img class="img-responsive" src="/image/book1.png" />
+									</div>
+									<div class="col-xs-2">
+										<img class="img-responsive" src="/image/book1.png" />
+									</div>
 								</div>
+							</div>
 						</div>
 					</div>
-					<a class="left carousel-control" href="#myCarousel" role="button"
-						data-slide="prev"> <span
+
+					<!-- Controls -->
+					<a class="left carousel-control" href="##featured-books"
+						role="button" data-slide="prev"> <span
 						class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
 						<span class="sr-only">Previous</span>
-					</a> <a class="right carousel-control" href="#myCarousel" role="button"
-						data-slide="next"> <span
+					</a> <a class="right carousel-control" href="##featured-books"
+						role="button" data-slide="next"> <span
 						class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 						<span class="sr-only">Next</span>
 					</a>
 				</div>
-
-			</div>
-
-			<div class="col-xs-4">
-				<img src="/images/icon.png" class="img-reposnsive icon"/>
-				<h3 id="iconText"><i>Because books are the best source of entertainment!</i></h3>
-			</div>
-			
-				 </div>
 			</div>
 		</div>
-
 	</div>
-
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
-
-
-
-
+	<div th:replace="common/header :: bottom-scripts"></div>
 
 </body>
 </html>

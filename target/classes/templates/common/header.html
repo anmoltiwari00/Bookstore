@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:fragment="common-header">
+<meta charset="UTF-8" />
+<title>Bookstore</title>
+
+
+
+
+
+<!-- Bootstrap core CSS -->
+<link href="/css/bootstrap.min.css" rel="stylesheet" />
+
+<!-- Custom styles for this template -->
+<link href="/css/style.css" rel="stylesheet" />
+
+</head>
+
+<body>
+<div th:fragment="navbar">
+	<div class="page-top"></div>
+	<nav class="navbar navbar-default navbar-inverse" id="topElement">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#"> Bookstore</a>
+			</div>
+			<div id="navbar">
+				<ul class="nav navbar-nav navbar-left">
+
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expanded="false">BOOKS <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Browse Bookshelf </a></li>
+							<li><a href="#">Hours &#38; Directions</a></li>
+							<li><a href="#">FAQ</a></li>
+
+						</ul></li>
+					<form class="navbar-form" id="inputForm">
+						<div class="form-group">
+							<input type="text" name="keyword" class="form-control"
+								placeholder="Book title" />
+						</div>
+						<button type="submit" class="btn btn-default">Search</button>
+					</form>
+
+				</ul>
+
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">SHOPPING CART</a></li>
+					<li><a href="/myAccount">MY ACCOUNT</a></li>
+					<li><a href="#">LOGOUT</a></li>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+		<!--/.container-fluid -->
+	</nav>
+</div> 
+<div th:fragment="bottom-scripts">
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+</div>
+</body>
+</html>

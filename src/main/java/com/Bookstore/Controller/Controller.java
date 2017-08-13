@@ -4,12 +4,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 //Controller class
 @org.springframework.stereotype.Controller
-@RequestMapping("/")
 public class Controller {
 	
-	@RequestMapping("/index")
+	@RequestMapping("/")
 	public String index() {
 		return "index";
+	}
+	
+	@RequestMapping("/myAccount")
+	public String myAccount() {
+		return "myAccount";
 	}
 
 }
