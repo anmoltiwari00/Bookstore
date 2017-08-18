@@ -1,5 +1,6 @@
 package com.Bookstore.domain;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,11 +14,16 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import com.Bookstore.domain.security.Authority;
 import com.Bookstore.domain.security.UserRole;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table
-public class User {
+public class User implements UserDetails{
 	
 	@Id
 	@Column(name="Id", nullable=false, updatable=false)
@@ -25,10 +31,11 @@ public class User {
 	private long id;
 	
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JsonIgnore
 	private Set<UserRole> userRoles = new HashSet<>();
-	
+
 	@Column(name="user_name", nullable=false, updatable=false)
-	private String userName;
+	private String username;
 	
 	@Column(name="password")
 	private String password;
@@ -47,6 +54,14 @@ public class User {
 	
 	private boolean enabled=true;
 	
+	public Set<UserRole> getUserRoles() {
+		return userRoles;
+	}
+
+	public void setUserRoles(Set<UserRole> userRoles) {
+		this.userRoles = userRoles;
+	}
+	
 	public long getId() {
 		return id;
 	}
@@ -56,11 +71,11 @@ public class User {
 	}
 
 	public String getUserName() {
-		return userName;
+		return username;
 	}
 
 	public void setUserName(String userName) {
-		this.userName = userName;
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -111,6 +126,36 @@ public class User {
 		this.enabled = enabled;
 	}
 
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		Set<GrantedAuthority> authorities = new HashSet<>();
+		userRoles.forEach(ur -> authorities.add(new Authority(ur.getRole().getName())));
+		return authorities;
+	}
+
+
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public String getUsername() {
+		return null;
+	}
 	
 
 }
